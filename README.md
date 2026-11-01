@@ -4,7 +4,7 @@ A modern and elegant wedding invitation website built with React. The applicatio
 
 ## 🚀 Live Demo
 
-**Live Demo**: [React Pizza URL](https://pizza-shop-peach-two.vercel.app)
+**Live Demo**: [React Pizza URL](https://react-pizza-seven-omega.vercel.app/)
 
 Repository: [GitHub repository URL](https://github.com/DaddySammyLabs/react-pizza)
 
