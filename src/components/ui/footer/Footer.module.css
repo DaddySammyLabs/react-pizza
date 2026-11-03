@@ -1,0 +1,19 @@
+.footer {
+  padding: 45px 20px;
+  text-align: center;
+  background: #222222;
+  color: white;
+}
+
+.footer h2 {
+  margin-bottom: 12px;
+}
+
+.footer p {
+  margin-bottom: 20px;
+}
+
+.footer span {
+  color: #aaaaaa;
+  font-size: 13px;
+}

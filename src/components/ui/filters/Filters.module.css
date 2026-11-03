@@ -1,0 +1,124 @@
+/* .filters h2 {
+  padding: 0px 20px;
+}
+
+.filters h2 {
+  margin-bottom: 8px;
+  margin-top: -15px;
+} */
+
+/* .selectFilter {
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin-bottom: 20px;
+} */
+
+/* .selectFilter input,
+.selectFilter select {
+  padding: 8px 17px;
+  width: 220px;
+}
+
+.selectFilter input {
+  padding-left: 40px;
+}
+
+
+} */
+
+.filters {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.selectFilter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 16px;
+}
+
+/* .select {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+  opacity: 0.6;
+  cursor: pointer;
+} */
+
+.select,
+.search {
+  outline: none;
+  opacity: 0.9;
+
+  padding: 13px 24px;
+  border: none;
+  border-radius: 30px;
+
+  background: #f5f5f5;
+  color: #333333;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.select:hover {
+  background: #ffe5d2;
+  color: #ff6900;
+}
+
+.search {
+  position: relative;
+  padding: 8px 18px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 30px;
+  top: 17px;
+}
+
+.input {
+  border: 1px solid #d1d5db;
+
+  border-radius: 30px;
+
+  border-radius: none;
+  background: #f5f5f5;
+
+  padding: 8px 16px 8px 44px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: #9ca3af;
+}
+
+.clearIcon {
+  position: absolute;
+  right: 30px;
+  top: 16px;
+  height: 17px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.clearIcon:hover {
+  opacity: 0.6;
+}
+
+@media (min-width: 768px) {
+  .selectFilter select,
+  .selectFilter input {
+    width: auto;
+  }
+}
