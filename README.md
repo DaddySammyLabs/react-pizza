@@ -10,7 +10,7 @@ Repository: [GitHub repository URL](https://github.com/DaddySammyLabs/react-pizz
 
 ## 📸 Preview
 
-![React Pizza  - Home](src/assets/images/pizzaHouse_home.png)
+![React Pizza  - Home](src/assets/images/reactPizza.png)
 ![React Pizza  - Orders](src/assets/images/pizzaHouse_orders.png)
 
 ## Основные возможности проекта
