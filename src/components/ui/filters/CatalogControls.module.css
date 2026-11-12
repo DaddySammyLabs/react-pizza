@@ -52,6 +52,7 @@
 } */
 
 .select,
+.selector,
 .search {
   outline: none;
   opacity: 0.9;
@@ -70,7 +71,29 @@
   transition: 0.2s;
 }
 
-.select:hover {
+.select {
+  outline: none;
+  opacity: 0.9;
+
+  padding: 0px 4px;
+  border: none;
+  border-radius: 30px;
+
+  background: transparent;
+  color: #333333;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.selector:hover {
+  background: #ffe5d2;
+}
+
+.selector:hover .select {
   background: #ffe5d2;
   color: #ff6900;
 }
@@ -87,7 +110,9 @@
 }
 
 .input {
-  border: 1px solid #d1d5db;
+  /* border: 1px solid #d1d5db; */
+  border: none;
+  border-bottom: 0.6px solid #d1d5db;
 
   border-radius: 30px;
 

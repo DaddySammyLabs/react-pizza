@@ -2,10 +2,10 @@ import { useApp } from "@/context/AppContext";
 import styles from "./Filters.module.css";
 
 import Categories from "@/components/ui/categories/Categories";
-import FiltersSearch from "@/components/ui/filters/Filters";
+import CatalogControls from "@/components/ui/filters/CatalogControls";
 
 const Filters = () => {
-  const { activeCategory, setActiveCategory, filteredPizzas } = useApp();
+  const { activeCategory, setActiveCategory } = useApp();
 
   return (
     <div className={styles.filters} id="filters">
@@ -13,7 +13,7 @@ const Filters = () => {
         activeCategory={activeCategory}
         setActiveCategory={setActiveCategory}
       />
-      <FiltersSearch />
+      <CatalogControls />
     </div>
   );
 };

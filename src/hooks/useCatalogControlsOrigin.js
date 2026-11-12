@@ -1,3 +1,4 @@
+// useFiltersOrigin.js
 import { useState } from "react";
 
 const useFilters = ({ items }) => {
@@ -12,7 +13,6 @@ const useFilters = ({ items }) => {
   const clearInput = () => setSearchValue("");
 
   // sorting
-
   const onChangeSortValue = (event) => {
     setSortValue(event.target.value);
   };

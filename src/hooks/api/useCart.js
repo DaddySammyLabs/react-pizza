@@ -54,8 +54,11 @@ const useCart = (url) => {
   // Добавление товара
   const addToCart = async (product) => {
     try {
+      // const existingItem = cart.find(
+      //   (item) => item.itemId === product.id || item.id === product.id,
+      // );
       const existingItem = cart.find(
-        (item) => item.itemId === product.id || item.id === product.id,
+        (item) => Number(item.itemId) === Number(product.id),
       );
 
       if (existingItem) {
