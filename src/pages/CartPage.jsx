@@ -1,13 +1,19 @@
-import Cart from "@/components/screens/cart/Cart";
 import { useApp } from "@/context/AppContext";
+
+import Cart from "@/components/screens/cart/Cart";
 
 function CartPage() {
   const { cart, totalPrice, changeQuantity, checkout, cartLoading } = useApp();
 
-  if (cartLoading) return <h2>Загрузка корзины...</h2>;
+  if (cartLoading)
+    return (
+      <h2 style={{ textAlign: "center", margin: "100px" }}>
+        Загрузка корзины...
+      </h2>
+    );
 
   return (
-    <main>
+    <main style={{ minHeight: "64vh" }}>
       <Cart
         cart={cart}
         totalPrice={totalPrice}

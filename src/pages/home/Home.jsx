@@ -32,16 +32,6 @@ function Home() {
           </div>
 
           {/* <div ref={parent} className={styles.pizzaGrid}>
-            {items.map((pizza) => (
-              <PizzaCard
-                key={pizza.id}
-                pizza={pizza}
-                addToCart={addToCart}
-                quantity={cart.quantity}
-              />
-            ))}
-          </div> */}
-          <div ref={parent} className={styles.pizzaGrid}>
             {items.map((pizza) => {
               // const cartItem = cart.find((item) => item.itemId === pizza.id)
               const cartItem = cart.find(
@@ -58,6 +48,17 @@ function Home() {
                 />
               );
             })}
+          </div> */}
+
+          <div ref={parent} className={styles.pizzaGrid}>
+            {items.map((pizza) => (
+              <PizzaCard
+                key={pizza.id}
+                item={pizza}
+                addToCart={addToCart}
+                cart={cart}
+              />
+            ))}
           </div>
         </section>
       </main>

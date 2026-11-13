@@ -1,10 +1,45 @@
+import useItemOptions from "@/hooks/useItemOptions";
+import useCartItem from "@/hooks/useCartItem";
 import styles from "./Card.module.css";
 
-function Card({ item, addToCart, quantity }) {
+function Card({ item, addToCart, cart = [] }) {
+  // Цена зависит от размера
+  const {
+    DOUGHS,
+    selectedSize,
+    setSelectedSize,
+    selectedDough,
+    setSelectedDough,
+    currentPrice,
+  } = useItemOptions(item);
+
+  // Ищем конкретную комбинацию в корзине
+  const { quantity, cartItem } = useCartItem(
+    item,
+    cart,
+    selectedSize,
+    selectedDough,
+  );
+  // const cartItem = cart.find(
+  //   (cartItem) =>
+  //     Number(cartItem.itemId) === Number(item.id) &&
+  //     Number(cartItem.size) === selectedSize.value &&
+  //     cartItem.dough === selectedDough.value,
+  // );
+
+  const handleAddToCart = () => {
+    addToCart({
+      ...item,
+      price: currentPrice,
+      size: selectedSize.value,
+      dough: selectedDough.value,
+    });
+  };
+
   return (
     <article className={styles.card}>
       <div className={styles.imageWrapper}>
-        <img src={item.imageUrl} alt={item.name} className={styles.image} />
+        <img src={item.imageUrl} alt={item.title} className={styles.image} />
 
         {item.popular && <span className={styles.badge}>🔥 Популярная</span>}
       </div>
@@ -15,26 +50,44 @@ function Card({ item, addToCart, quantity }) {
         <p className={styles.description}>{item.description}</p>
 
         <div className={styles.selector}>
-          <ul>
-            <li className={styles.active}>тонкое</li>
-            <li>традиционное</li>
+          {/* Толщина теста */}
+          <ul className={styles.dough}>
+            {DOUGHS.map((dough) => (
+              <li
+                key={dough.value}
+                className={` ${styles.doughSelect} ${
+                  selectedDough.value === dough.value ? styles.active : ""
+                }`}
+                onClick={() => setSelectedDough(dough)}
+              >
+                {dough.label}
+              </li>
+            ))}
           </ul>
 
-          <ul>
-            <li className={styles.active}>26 см.</li>
-            <li>30 см.</li>
-            <li>40 см.</li>
+          {/* Размер пиццы */}
+          <ul className={styles.size}>
+            {item.sizes.map((size) => (
+              <li
+                key={size.value}
+                className={`${styles.sizeSelect} ${
+                  selectedSize.value === size.value ? styles.active : ""
+                }`}
+                onClick={() => setSelectedSize(size)}
+              >
+                {size.label}
+              </li>
+            ))}
           </ul>
         </div>
 
         <div className={styles.footer}>
-          <strong className={styles.price}>{item.price} ₽</strong>
+          <strong className={styles.price}>{currentPrice} ₽</strong>
 
-          {/* <button className={styles.addButton} onClick={() => addToCart(pizza)}>
+          <button className={styles.addButton} onClick={handleAddToCart}>
             + Добавить
-          </button> */}
-          <button className={styles.addButton} onClick={() => addToCart(item)}>
-            + Добавить {quantity > 0 && `(${quantity})`}
+            {/* {cartItem && ` (${cartItem.quantity})`} */}
+            {quantity > 0 && ` (${quantity})`}
           </button>
         </div>
       </div>

@@ -1,11 +1,19 @@
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+
 import CartInfo from "./CartInfo";
 import CartItem from "@/components/ui/cards/cart-item/CartItem";
+
 import styles from "./Cart.module.css";
 
 function Cart({ cart, changeQuantity, totalPrice, checkout }) {
+  const [parent] = useAutoAnimate({
+    duration: 300,
+    easing: "ease-in-out",
+  });
+
   return (
     <CartInfo cart={cart} checkout={checkout} totalPrice={totalPrice}>
-      <div className={styles.items}>
+      <div ref={parent} className={styles.items}>
         {cart.map((item) => (
           <CartItem
             key={item.title}

@@ -1,0 +1,62 @@
+const SIZES = [
+  { label: "26 см", value: 26, priceMultiplier: 1 },
+  { label: "30 см", value: 30, priceMultiplier: 1.2 },
+  { label: "40 см", value: 40, priceMultiplier: 1.5 },
+];
+
+export const pizzas = [
+  {
+    id: 1,
+    title: "Пепперони",
+    description: "Пикантная пепперони, моцарелла и томатный соус",
+    price: 499,
+    category: "Мясные",
+    imageUrl: "/images/peperoni.jpeg",
+    sizes: SIZES,
+  },
+  {
+    id: 2,
+    title: "Маргарита",
+    description: "Моцарелла, томаты и фирменный томатный соус",
+    price: 399,
+    category: "Вегетарианские",
+    imageUrl: "/images/margherita.jpeg",
+    sizes: SIZES,
+  },
+  {
+    id: 3,
+    title: "Четыре сыра",
+    description: "Моцарелла, чеддер, пармезан и дорблю",
+    price: 549,
+    category: "Сырные",
+    imageUrl: "/images/four_cheeses.jpeg",
+    sizes: SIZES,
+  },
+  {
+    id: 4,
+    title: "Гавайская",
+    description: "Курица, ананасы, моцарелла и соус",
+    price: 479,
+    category: "Мясные",
+    imageUrl: "/images/hawaiian.jpeg",
+    sizes: SIZES,
+  },
+  {
+    id: 5,
+    title: "Барбекю",
+    description: "Курица, бекон, красный лук и BBQ соус",
+    price: 599,
+    category: "Мясные",
+    imageUrl: "/images/barbecue.jpeg",
+    sizes: SIZES,
+  },
+  {
+    id: 6,
+    title: "Овощная",
+    description: "Свежие овощи, томаты и моцарелла",
+    price: 429,
+    category: "Вегетарианские",
+    imageUrl: "/images/vegetable.jpeg",
+    sizes: SIZES,
+  },
+];

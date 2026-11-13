@@ -1,14 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
-// Получение корзины с сервера при монтировании.
-// Добавление товара через POST.
-// Увеличение и уменьшение количества товара.
-// Удаление товара через DELETE, если количество становится 0.
-// Подсчёт общего количества товаров.
-// Подсчёт общей стоимости.
-// Очистка корзины на сервере.
-// loading, error, refetch.
+// useCart.js after ->    {SIZES, DOUGHS}
 
 const useCart = (url) => {
   const [cart, setCart] = useState([]);
@@ -52,13 +45,14 @@ const useCart = (url) => {
   }, []);
 
   // Добавление товара
+
   const addToCart = async (product) => {
     try {
-      // const existingItem = cart.find(
-      //   (item) => item.itemId === product.id || item.id === product.id,
-      // );
       const existingItem = cart.find(
-        (item) => Number(item.itemId) === Number(product.id),
+        (item) =>
+          Number(item.itemId) === Number(product.id) &&
+          Number(item.size) === Number(product.size) &&
+          item.dough === product.dough,
       );
 
       if (existingItem) {
@@ -76,6 +70,10 @@ const useCart = (url) => {
           price: product.price,
           imageUrl: product.imageUrl,
           quantity: 1,
+
+          // Новые параметры
+          size: product.size,
+          dough: product.dough,
         });
 
         setCart((prev) => [...prev, data]);
