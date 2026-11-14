@@ -1,6 +1,18 @@
-# React Pizza
+# 🍕 Greenlights. Pizza Shop
 
-A modern and elegant wedding invitation website built with React. The application provides a beautiful digital invitation where guests can explore wedding details, view the event schedule, find the venue, and confirm their attendance.
+A modern pizza ordering web application built with React 19 and Vite.
+
+Explore the pizza catalog, customize your shopping cart, place orders, track deliveries, and manage your order history — all through a responsive and user-friendly interface.
+
+<p align="center">
+<a href="https://react-pizza-seven-omega.vercel.app/">
+<strong>🚀 Live Demo</strong>
+</a>
+&nbsp;·&nbsp;
+<a href="https://github.com/DaddySammyLabs/react-pizza">
+<strong>📂 GitHub Repository</strong>
+</a>
+</p>
 
 ## 🚀 Live Demo
 
