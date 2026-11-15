@@ -2,15 +2,15 @@ import Delivery from "@/components/screens/delivery/Delivery";
 import { useApp } from "@/context/AppContext";
 
 function DeliveryPage() {
-  const { orders, loadingOrders, errorOrders } = useApp();
+  const { cart, totalPrice, loadingOrders, errorOrders } = useApp();
 
-  console.log("ORDERS FROM CONTEXT:", orders);
+  // console.log("ORDERS FROM CONTEXT:", orders);
 
-  if (loadingOrders) return <h2>Загрузка заказов...</h2>;
+  // if (loadingOrders) return <h2>Загрузка заказов...</h2>;
 
-  if (errorOrders) return <h2>Ошибка: {errorOrders}</h2>;
+  // if (errorOrders) return <h2>Ошибка: {errorOrders}</h2>;
 
-  return <Delivery orders={orders} />;
+  return <Delivery cart={cart} totalPrice={totalPrice} />;
 }
 
 export default DeliveryPage;

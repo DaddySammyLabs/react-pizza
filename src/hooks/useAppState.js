@@ -2,10 +2,11 @@ import { pizzas } from "@/data/pizzas";
 // import { SIZES, DOUGHS } from "./itemConstants";
 // import useFetch from "./api/useFetch";
 
-import { useCategories } from "./useCategories";
+import { useCategories } from "./filters/useCategories";
 import useScroll from "./common/useScroll";
-import useCatalogControls from "@/hooks/useCatalogControls"; //useFilters
-import useCart from "./api/useCart";
+import useCatalogControls from "@/hooks/filters/useCatalogControls"; //useFilters
+import useCart from "./cart/useCart";
+// import useOrders from "./hooks/useOrders";
 
 const API_URL = "https://72c8b75c9e22b6a0.mokky.dev/items";
 const CART_URL = "https://72c8b75c9e22b6a0.mokky.dev/cart";
@@ -35,6 +36,8 @@ const useAppState = () => {
   } = useCatalogControls({
     items: categorizedItems, // items-from-useCategories
   });
+
+  // const { orders, loadingOrders, errorOrders, addOrder } = useOrders();
 
   const checkout = async () => {
     if (!cart.length) return null;
@@ -83,7 +86,6 @@ const useAppState = () => {
     cart,
     cartCount,
     totalPrice,
-    checkout,
     addToCart,
     changeQuantity,
     removeFromCart,
@@ -91,6 +93,8 @@ const useAppState = () => {
     cartLoading,
     cartError,
     reLoadCart,
+
+    checkout,
   };
 };
 

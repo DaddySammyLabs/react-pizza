@@ -22,13 +22,17 @@ function CartItem({
           </div>
         </div>
 
-        <div className={styles.quantity}>
-          <button onClick={() => changeQuantity(itemId, -1)}>−</button>
+        {changeQuantity ? (
+          <div className={styles.quantity}>
+            <button onClick={() => changeQuantity(itemId, -1)}>−</button>
 
+            <span>{quantity}</span>
+
+            <button onClick={() => changeQuantity(itemId, 1)}>+</button>
+          </div>
+        ) : (
           <span>{quantity}</span>
-
-          <button onClick={() => changeQuantity(itemId, 1)}>+</button>
-        </div>
+        )}
 
         <strong className={styles.subtotal}>{price * quantity} ₽</strong>
       </div>

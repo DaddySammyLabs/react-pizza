@@ -1,4 +1,4 @@
-import useItemOptions from "@/hooks/useItemOptions";
+import useItemOptions from "@/hooks/filters/useItemOptions";
 import styles from "./Card.module.css";
 
 function Card({ item, addToCart, cart = [] }) {

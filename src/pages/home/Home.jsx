@@ -8,7 +8,7 @@ import PizzaCard from "@/components/ui/cards/pizza-card/Card";
 import styles from "./Home.module.css";
 
 function Home() {
-  const { items, cart, addToCart } = useApp();
+  const { items } = useApp();
 
   const [parent] = useAutoAnimate({
     duration: 300,
@@ -31,33 +31,9 @@ function Home() {
             <Filters />
           </div>
 
-          {/* <div ref={parent} className={styles.pizzaGrid}>
-            {items.map((pizza) => {
-              // const cartItem = cart.find((item) => item.itemId === pizza.id)
-              const cartItem = cart.find(
-                (item) => Number(item.itemId) === Number(pizza.id),
-              );
-
-              return (
-                <PizzaCard
-                  key={pizza.id}
-                  item={pizza}
-                  addToCart={addToCart}
-                  // quantity={cartItem?.quantity || 0}
-                  quantity={cartItem?.quantity ?? 0}
-                />
-              );
-            })}
-          </div> */}
-
           <div ref={parent} className={styles.pizzaGrid}>
             {items.map((pizza) => (
-              <PizzaCard
-                key={pizza.id}
-                item={pizza}
-                addToCart={addToCart}
-                cart={cart}
-              />
+              <PizzaCard key={pizza.id} item={pizza} />
             ))}
           </div>
         </section>
@@ -67,3 +43,24 @@ function Home() {
 }
 
 export default Home;
+
+// props: if(quantity) -> instead(cart)
+
+// <div ref={parent} className={styles.pizzaGrid}>
+//   {items.map((pizza) => {
+//     const cartItem = cart.find(
+//       (item) => Number(item.itemId) === Number(pizza.id),
+//     );
+
+//     return (
+//       <PizzaCard
+//         key={pizza.id}
+//         item={pizza}
+//         addToCart={addToCart}
+//         // quantity={cartItem?.quantity || 0}
+//         quantity={cartItem?.quantity ?? 0}
+//       />
+//     );
+//   })}
+// </div>;
+//

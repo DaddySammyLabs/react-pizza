@@ -1,8 +1,12 @@
-import useItemOptions from "@/hooks/useItemOptions";
-import useCartItem from "@/hooks/useCartItem";
+import { useApp } from "@/context/AppContext";
+
+import useItemOptions from "@/hooks/filters/useItemOptions";
+import useCartItem from "@/hooks/cart/useCartItem";
 import styles from "./Card.module.css";
 
-function Card({ item, addToCart, cart = [] }) {
+function Card({ item = [] }) {
+  const { cart, addToCart } = useApp();
+
   // Цена зависит от размера
   const {
     DOUGHS,
@@ -13,28 +17,14 @@ function Card({ item, addToCart, cart = [] }) {
     currentPrice,
   } = useItemOptions(item);
 
-  // Ищем конкретную комбинацию в корзине
-  const { quantity, cartItem } = useCartItem(
+  const { quantity, handleAddToCart } = useCartItem({
     item,
     cart,
     selectedSize,
     selectedDough,
-  );
-  // const cartItem = cart.find(
-  //   (cartItem) =>
-  //     Number(cartItem.itemId) === Number(item.id) &&
-  //     Number(cartItem.size) === selectedSize.value &&
-  //     cartItem.dough === selectedDough.value,
-  // );
-
-  const handleAddToCart = () => {
-    addToCart({
-      ...item,
-      price: currentPrice,
-      size: selectedSize.value,
-      dough: selectedDough.value,
-    });
-  };
+    currentPrice,
+    addToCart,
+  });
 
   return (
     <article className={styles.card}>
