@@ -15,7 +15,7 @@ function Card({ title, imageUrl, price, quantity }) {
         <div className={styles.footer}>
           {price} ₽{""}
           <strong>x {quantity}</strong>
-          <strong className={styles.price}>{price * quantity} ₽</strong>
+          <strong className={styles.priceTotal}>{price * quantity} ₽</strong>
         </div>
       </div>
     </article>

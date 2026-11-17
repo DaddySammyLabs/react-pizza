@@ -5,14 +5,14 @@ import CartItem from "@/components/ui/cards/cart-item/CartItem";
 
 import styles from "./Cart.module.css";
 
-function Cart({ cart, changeQuantity, totalPrice, checkout }) {
+function Cart({ cart, changeQuantity, totalPrice, creatDelivery }) {
   const [parent] = useAutoAnimate({
     duration: 300,
     easing: "ease-in-out",
   });
 
   return (
-    <CartInfo cart={cart} checkout={checkout} totalPrice={totalPrice}>
+    <CartInfo cart={cart} totalPrice={totalPrice} creatDelivery={creatDelivery}>
       <div ref={parent} className={styles.items}>
         {cart.map((item) => (
           <CartItem

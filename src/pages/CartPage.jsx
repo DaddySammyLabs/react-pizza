@@ -3,7 +3,14 @@ import { useApp } from "@/context/AppContext";
 import Cart from "@/components/screens/cart/Cart";
 
 function CartPage() {
-  const { cart, totalPrice, changeQuantity, checkout, cartLoading } = useApp();
+  const {
+    cart,
+    totalPrice,
+    changeQuantity,
+    checkout,
+    cartLoading,
+    creatDelivery,
+  } = useApp();
 
   if (cartLoading)
     return (
@@ -19,6 +26,7 @@ function CartPage() {
         totalPrice={totalPrice}
         changeQuantity={changeQuantity}
         checkout={checkout}
+        creatDelivery={creatDelivery}
       />
     </main>
   );

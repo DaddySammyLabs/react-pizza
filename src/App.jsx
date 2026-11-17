@@ -4,7 +4,7 @@ import Header from "@/components/screens/header/Header";
 
 import Home from "@/pages/home/Home";
 // import OrdersPage from "@/pages/orders/OrdersPage";
-// import DeliveryPage from "./pages/delivery/DeliveryPage";
+
 import DeliveryPage from "./pages/DeliveryPage";
 import CartPage from "@/pages/CartPage";
 import Footer from "@/components/ui/footer/Footer";

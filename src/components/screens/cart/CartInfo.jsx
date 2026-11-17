@@ -1,15 +1,15 @@
 import styles from "./Cart.module.css";
 
-function CartInfo({ cart, checkout, totalPrice, children }) {
-  const handleCheckout = async () => {
-    try {
-      await checkout();
-      alert("Заказ успешно оформлен! 🍕");
-    } catch (error) {
-      console.error("Ошибка оформления заказа:", error);
-      alert("Не удалось оформить заказ");
-    }
-  };
+function CartInfo({ cart, totalPrice, creatDelivery, children }) {
+  // const handleCheckout = async () => {
+  //   try {
+  //     await checkout();
+  //     alert("Заказ успешно оформлен! 🍕");
+  //   } catch (error) {
+  //     console.error("Ошибка оформления заказа:", error);
+  //     alert("Не удалось оформить заказ");
+  //   }
+  // };
 
   return (
     <section className={styles.cart} id="cart">
@@ -31,7 +31,7 @@ function CartInfo({ cart, checkout, totalPrice, children }) {
               <strong>{totalPrice} ₽</strong>
             </div>
 
-            <button onClick={handleCheckout}>Оформить заказ</button>
+            <button onClick={creatDelivery}>Оформить заказ</button>
           </div>
         </>
       )}

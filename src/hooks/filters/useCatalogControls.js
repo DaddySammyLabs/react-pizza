@@ -23,13 +23,17 @@ const useCatalogControls = ({ items }) => {
   );
 
   // 2. Сортировка
+  // 2.2 Сортировка -> sizes: [{ label: "26 см", value: 26, price: 479 }, ...],
+
   const sortedItems = [...filteredItems].sort((a, b) => {
     if (sortValue === "priceCheap") {
-      return a.price - b.price;
+      // return a.price - b.price;
+      return a.sizes[0].price - b.sizes[0].price;
     }
 
     if (sortValue === "priceExpensive") {
-      return b.price - a.price;
+      // return b.price - a.price;
+      return b.sizes[0].price - a.sizes[0].price;
     }
 
     if (sortValue === "title") {

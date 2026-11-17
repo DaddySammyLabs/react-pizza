@@ -6,10 +6,13 @@ import { useCategories } from "./filters/useCategories";
 import useScroll from "./common/useScroll";
 import useCatalogControls from "@/hooks/filters/useCatalogControls"; //useFilters
 import useCart from "./cart/useCart";
+import useOrders from "./api/useOrders";
 // import useOrders from "./hooks/useOrders";
 
 const API_URL = "https://72c8b75c9e22b6a0.mokky.dev/items";
 const CART_URL = "https://72c8b75c9e22b6a0.mokky.dev/cart";
+const DELIVERY = "https://72c8b75c9e22b6a0.mokky.dev/delivery";
+const ORDERS = "https://72c8b75c9e22b6a0.mokky.dev/orders";
 
 const useAppState = () => {
   const { upButton } = useScroll();
@@ -25,31 +28,6 @@ const useAppState = () => {
     // error: errorCategories,
     // refetch: reloadCategori`es,
   } = useCategories({ items: pizzas }); //items-origin
-
-  const {
-    searchValue,
-    onChangeSearchValue,
-    clearInput,
-    items,
-    sortValue,
-    onChangeSortValue,
-  } = useCatalogControls({
-    items: categorizedItems, // items-from-useCategories
-  });
-
-  // const { orders, loadingOrders, errorOrders, addOrder } = useOrders();
-
-  const checkout = async () => {
-    if (!cart.length) return null;
-
-    const newOrder = await addOrder(cart, totalPrice);
-
-    if (!newOrder) return null;
-
-    await clearCart();
-
-    return newOrder;
-  };
 
   const {
     cart,
@@ -68,6 +46,29 @@ const useAppState = () => {
     removeFromCart,
     clearCart,
   } = useCart(CART_URL);
+
+  const {
+    searchValue,
+    onChangeSearchValue,
+    clearInput,
+    items,
+    sortValue,
+    onChangeSortValue,
+  } = useCatalogControls({
+    items: categorizedItems, // items-from-useCategories
+  });
+
+  const {
+    orders: deliveries,
+    createOrder: creatDelivery,
+    removeOrder: removeDelivery,
+  } = useOrders({
+    url: DELIVERY,
+    cartItems: cart,
+
+    clearCart,
+    totalPrice,
+  });
 
   return {
     upButton,
@@ -94,7 +95,14 @@ const useAppState = () => {
     cartError,
     reLoadCart,
 
-    checkout,
+    // checkout,
+
+    // orders,
+    // createOrder,
+    // removeOrder,
+    deliveries,
+    creatDelivery,
+    removeDelivery,
   };
 };
 

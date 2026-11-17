@@ -31,6 +31,7 @@ export const pizzas = [
     description: "Моцарелла, чеддер, пармезан и дорблю",
     category: "Сырные",
     imageUrl: "/images/four_cheeses.jpeg",
+    popular: true,
 
     sizes: [
       { label: "26 см", value: 26, price: 549 },
@@ -57,6 +58,7 @@ export const pizzas = [
     description: "Курица, бекон, красный лук и BBQ соус",
     category: "Мясные",
     imageUrl: "/images/barbecue.jpeg",
+    popular: true,
 
     sizes: [
       { label: "26 см", value: 26, price: 599 },

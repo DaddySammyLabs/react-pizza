@@ -2,7 +2,7 @@ import Delivery from "@/components/screens/delivery/Delivery";
 import { useApp } from "@/context/AppContext";
 
 function DeliveryPage() {
-  const { cart, totalPrice, loadingOrders, errorOrders } = useApp();
+  const { deliveries } = useApp();
 
   // console.log("ORDERS FROM CONTEXT:", orders);
 
@@ -10,7 +10,7 @@ function DeliveryPage() {
 
   // if (errorOrders) return <h2>Ошибка: {errorOrders}</h2>;
 
-  return <Delivery cart={cart} totalPrice={totalPrice} />;
+  return <Delivery deliveries={deliveries} />;
 }
 
 export default DeliveryPage;

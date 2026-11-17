@@ -32,21 +32,6 @@
   transform: scale(1.05);
 }
 
-.badge {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-
-  padding: 8px 12px;
-  border-radius: 20px;
-
-  background: white;
-  color: #ff6900;
-
-  font-size: 12px;
-  font-weight: 700;
-}
-
 .info {
   padding: 20px;
 }
@@ -70,6 +55,21 @@
   flex-direction: column;
   padding: 6px;
   cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+
+  padding: 8px 12px;
+  border-radius: 20px;
+
+  background: white;
+  color: #ff6900;
+
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .dough,

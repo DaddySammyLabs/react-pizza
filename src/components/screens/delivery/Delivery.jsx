@@ -1,13 +1,12 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import CartItem from "@/components/ui/cards/cart-item/CartItem";
+import { Heading, Empty } from "./InfoDelivery";
 
 import CardOrderd from "@/components/ui/cards/order-item/CardOrder";
-
-import Info from "./Info";
+import InfoCard from "@/components/ui/cards/order-item/Info";
 
 import styles from "./Delivery.module.css";
 
-function Delivery({ orders = [], cart, totalPrice, isOrderCompleted = true }) {
+function Delivery({ deliveries = [] }) {
   const [parent] = useAutoAnimate({
     duration: 300,
     easing: "ease-in-out",
@@ -15,38 +14,44 @@ function Delivery({ orders = [], cart, totalPrice, isOrderCompleted = true }) {
 
   return (
     <section className={styles.delivery}>
-      {/* {orders.map((order) => (
-        <Info order={order} totalPrice={totalPrice}>
-          <div ref={parent} className={styles.cardGrid}>
-            {order.map((item) => (
-              <CardOrderd
-                key={item.title}
-                title={item.title}
-                imageUrl={item.imageUrl}
-                price={item.price}
-                quantity={item.quantity}
-              />
-            ))}
-          </div>
-        </Info>
-      ))} */}
-      {isOrderCompleted && (
-        <Info cart={cart} totalPrice={totalPrice}>
-          <div ref={parent} className={styles.cardGrid}>
-            {cart.map((item) => (
-              <CardOrderd
-                key={item.title}
-                title={item.title}
-                imageUrl={item.imageUrl}
-                price={item.price}
-                quantity={item.quantity}
-              />
-            ))}
-          </div>
-        </Info>
-      )}
+      <Heading />
+
+      <div ref={parent}>
+        {deliveries.length > 0 ? (
+          [...deliveries].reverse().map((delivery) => (
+            <InfoCard
+              key={delivery.id}
+              items={delivery.items}
+              totalPrice={delivery.totalPrice}
+              orderArticle={delivery.dateOrder}
+            >
+              <div className={styles.cardGrid}>
+                {delivery.items.map((item) => (
+                  <CardOrderd
+                    key={item.id}
+                    title={item.title}
+                    imageUrl={item.imageUrl}
+                    price={item.price}
+                    quantity={item.quantity}
+                  />
+                ))}
+              </div>
+            </InfoCard>
+          ))
+        ) : (
+          <Empty />
+        )}
+      </div>
     </section>
   );
 }
 
 export default Delivery;
+
+// {[...deliveries].reverse().map((delivery) => (
+// Альтернативный вариант: если хочешь сортировать именно по дате создания заказа, а не по индексу массива:
+// {[...deliveries]
+//   .sort((a, b) => b.dateOrder - a.dateOrder)
+//   .map((delivery) => (
+//     // твой JSX
+//   ))}
