@@ -3,6 +3,7 @@
   text-align: center;
   background: #222222;
   color: white;
+  display: none;
 }
 
 .footer h2 {
@@ -16,4 +17,10 @@
 .footer span {
   color: #aaaaaa;
   font-size: 13px;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    display: block;
+  }
 }

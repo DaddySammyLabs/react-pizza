@@ -14,7 +14,7 @@ function Header() {
 
       <nav className={styles.navigation}>
         <NavLink to="/">Главная</NavLink>
-        <NavLink to="/orders">Заказы</NavLink>
+        <NavLink to="/profile">Профиль</NavLink>
         <NavLink to="/delivery">Доставка</NavLink>
       </nav>
 

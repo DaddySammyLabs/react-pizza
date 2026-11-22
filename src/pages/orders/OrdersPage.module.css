@@ -1,0 +1,26 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.navigation a {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  border: silver solid 1px;
+  border-radius: 1px;
+}
+
+@media (max-width: 850px) {
+  .navigation a {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 550px) {
+  .navigation a {
+    grid-template-columns: 1fr;
+  }
+}

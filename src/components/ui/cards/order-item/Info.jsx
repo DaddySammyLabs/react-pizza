@@ -2,7 +2,13 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 import styles from "./Info.module.css";
 
-function Info({ children, items, totalPrice, orderArticle }) {
+function Info({
+  children,
+  items,
+  totalPrice,
+  orderArticle,
+  delivered = false,
+}) {
   const formattedDate = new Date(orderArticle).toLocaleString("ru-RU", {
     day: "2-digit",
     month: "2-digit",
@@ -22,6 +28,10 @@ function Info({ children, items, totalPrice, orderArticle }) {
         <div className={styles.date}>
           <h3>Актикул: {orderArticle}</h3>
           <p style={{ color: "#777" }}>Дата заказа: {formattedDate}</p>
+
+          <span className={delivered ? styles.delivered : styles.processing}>
+            {delivered ? "✓ Доставлено" : "🚚 В пути"}
+          </span>
         </div>
 
         <div className={styles.orderPrice}>

@@ -1,7 +1,7 @@
 // src/hooks/useModal.js
 
 import { useState, useCallback, useEffect } from "react";
-import { useEscapeKey } from "./common/useEscapeKey";
+import { useEscapeKey } from "./useEscapeKey";
 
 const useModal = (initialValue = false, closeOnEscape = false) => {
   const [isOpen, setIsOpen] = useState(initialValue);
@@ -20,21 +20,6 @@ const useModal = (initialValue = false, closeOnEscape = false) => {
 
   // useEscapeKey(closeOnEscape, close);
   useEscapeKey(isOpen && closeOnEscape, close);
-  // useEffect(() => {
-  //   if (!isOpen || !closeOnEscape) return;
-
-  //   const handleKeyDown = (event) => {
-  //     if (event.key === "Escape") {
-  //       close();
-  //     }
-  //   };
-
-  //   window.addEventListener("keydown", handleKeyDown);
-
-  //   return () => {
-  //     window.removeEventListener("keydown", handleKeyDown);
-  //   };
-  // }, [isOpen, closeOnEscape, close]);
 
   return {
     isOpen,

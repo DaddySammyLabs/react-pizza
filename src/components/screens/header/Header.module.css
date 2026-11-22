@@ -1,11 +1,12 @@
 .header {
   width: 100%;
   height: 80px;
-  padding: 0 8%;
+  padding: 0 15px;
 
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
+  display: none;
 
   background: #ffffff;
   border-bottom: 1px solid #eeeeee;
@@ -16,7 +17,7 @@
 }
 
 .logo {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 800;
   color: #252525;
   text-decoration: none;
@@ -27,9 +28,7 @@
 }
 
 .navigation {
-  display: flex;
-  align-items: center;
-  gap: 35px;
+  display: none;
 }
 
 .navigation a {
@@ -49,12 +48,13 @@
   align-items: center;
   gap: 10px;
 
-  padding: 13px 22px;
+  padding: 11px 14px;
   border-radius: 30px;
 
   background: #ff6900;
   color: white;
   text-decoration: none;
+  font-size: 13px;
   font-weight: 700;
 
   transition: background 0.2s;
@@ -79,21 +79,32 @@
   font-size: 12px;
 }
 
-@media (max-width: 700px) {
-  .header {
-    padding: 0 15px;
-  }
-
+@media (min-width: 540px) {
   .navigation {
-    display: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
   }
 
   .logo {
-    font-size: 20px;
+    font-size: 25px;
+  }
+
+  .navigation {
+    gap: 45px;
   }
 
   .cartButton {
-    padding: 11px 14px;
-    font-size: 13px;
+    padding: 13px 22px;
+    font-size: 16px;
   }
 }

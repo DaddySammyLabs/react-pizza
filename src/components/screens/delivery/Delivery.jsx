@@ -1,7 +1,7 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { Heading, Empty } from "./InfoDelivery";
 
-import CardOrderd from "@/components/ui/cards/order-item/CardOrder";
+import CardOrder from "@/components/ui/cards/order-item/CardOrder";
 import InfoCard from "@/components/ui/cards/order-item/Info";
 
 import styles from "./Delivery.module.css";
@@ -26,9 +26,10 @@ function Delivery({ deliveries = [] }) {
               orderArticle={delivery.dateOrder}
             >
               <div className={styles.cardGrid}>
-                {delivery.items.map((item) => (
-                  <CardOrderd
-                    key={item.id}
+                {delivery.items.map((item, index) => (
+                  <CardOrder
+                    // key={item.id}
+                    key={`${delivery.id}-${item.id}-${index}`}
                     title={item.title}
                     imageUrl={item.imageUrl}
                     price={item.price}

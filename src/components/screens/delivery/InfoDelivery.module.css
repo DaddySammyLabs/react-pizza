@@ -45,24 +45,6 @@
   color: #888;
 }
 
-.processing,
-.delivered {
-  padding: 9px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.processing {
-  background: #fff1dc;
-  color: #e58a00;
-}
-
-.delivered {
-  background: #e3f8e9;
-  color: #20964b;
-}
-
 @media (max-width: 600px) {
   .heading h2 {
     font-size: 26px;

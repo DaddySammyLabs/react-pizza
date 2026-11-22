@@ -7,6 +7,8 @@ import useScroll from "./common/useScroll";
 import useCatalogControls from "@/hooks/filters/useCatalogControls"; //useFilters
 import useCart from "./cart/useCart";
 import useOrders from "./api/useOrders";
+
+import useModal from "./common/useModal";
 // import useOrders from "./hooks/useOrders";
 
 const API_URL = "https://72c8b75c9e22b6a0.mokky.dev/items";
@@ -16,6 +18,12 @@ const ORDERS = "https://72c8b75c9e22b6a0.mokky.dev/orders";
 
 const useAppState = () => {
   const { upButton } = useScroll();
+
+  const {
+    isOpen: isOpenNavbar,
+    open: openNavbar,
+    close: closeNavbar,
+  } = useModal(false, true);
 
   // const { data: pizzas, loading, error, refetch } = useFetch(API_URL);
   // const { loading, error, refetch } = useFetch(API_URL);

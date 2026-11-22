@@ -1,8 +1,34 @@
-/* date */
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px 0;
+}
+
 .date {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
+
+.orderPrice {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+.orderPrice strong {
+  color: #ff6900;
+  margin-left: 10px;
+}
+
+.total {
+  font-size: 17px;
+  color: #555;
+}
+
+/* processing */
 
 .processing,
 .delivered {
@@ -22,27 +48,4 @@
   color: #20964b;
 }
 
-.items {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 20px 0;
-}
-
-.orderPrice {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-  font-size: 18px;
-}
-
-.orderPrice strong {
-  color: #ff6900;
-  margin-left: 10px;
-}
-
-.total {
-  font-size: 17px;
-  color: #555;
-}
+/*  */
