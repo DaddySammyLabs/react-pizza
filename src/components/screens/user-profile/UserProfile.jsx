@@ -19,17 +19,21 @@ const UserProfile = () => {
 
       <nav className={styles.navigation}>
         <NavLink to="/">
-          <img src="/icons/profile.svg"></img>Главная
+          <img src="/icons/heart.svg"></img>Избранные
         </NavLink>
         <NavLink to="/orders">
           {" "}
-          <img src="/icons/heart.svg"></img>Покупки
+          <img src="/icons/profile.svg"></img>Покупки
         </NavLink>
         <NavLink to="/delivery">
           <img src="/icons/cart.svg"></img>Доставка
         </NavLink>
       </nav>
-      <div className={styles.news}></div>
+      <div className={styles.news}>
+        <NavLink to="/" className={styles.logo}>
+          🍕 React<span>Pizza</span>
+        </NavLink>
+      </div>
       <div className={styles.banner}>
         <NavLink className={styles.button} to="/">
           Выбрать пиццу →

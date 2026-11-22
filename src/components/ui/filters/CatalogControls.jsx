@@ -1,6 +1,7 @@
 import React from "react";
-import styles from "./CatalogControls.module.css";
 import { useApp } from "@/context/AppContext";
+
+import styles from "./CatalogControls.module.css";
 
 const CatalogControls = ({}) => {
   const {
