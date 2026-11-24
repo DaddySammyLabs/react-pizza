@@ -1,6 +1,6 @@
 import styles from "./Orders.module.css";
 
-function Orders({ orders = [], isHistory = false }) {
+function Orders({ orders = [], removeOrder, isHistory = false }) {
   return (
     <section className={styles.delivery}>
       <div className={styles.heading}>
@@ -33,14 +33,10 @@ function Orders({ orders = [], isHistory = false }) {
 
                 <span
                   className={
-                    order.delivered ? styles.delivered : styles.processing
+                    order.isDelivered ? styles.delivered : styles.processing
                   }
                 >
-                  {order.delivered
-                    ? "✓ Доставлено"
-                    : isHistory
-                      ? ""
-                      : "🚚 В пути"}
+                  {order.isDelivered ? "✓ Доставлено" : "🚚 В пути"}
                 </span>
               </div>
 
@@ -63,6 +59,15 @@ function Orders({ orders = [], isHistory = false }) {
                 <span>Итого:</span>
                 <strong>{order.totalPrice} ₽</strong>
               </div>
+
+              {order.isDelivered && (
+                <button
+                  className={styles.deleteButton}
+                  onClick={() => removeOrder(order.id)}
+                >
+                  Удалить из истории заказов
+                </button>
+              )}
             </article>
           ))}
         </div>

@@ -6,10 +6,9 @@ import { useCategories } from "./filters/useCategories";
 import useScroll from "./common/useScroll";
 import useCatalogControls from "@/hooks/filters/useCatalogControls"; //useFilters
 import useCart from "./cart/useCart";
-import useOrders from "./api/useOrders";
 
-import useModal from "./common/useModal";
-// import useOrders from "./hooks/useOrders";
+// import useOrders from "./api/useOrders";
+import useOrdersControl from "./api/useOrdersControl";
 
 const API_URL = "https://72c8b75c9e22b6a0.mokky.dev/items";
 const CART_URL = "https://72c8b75c9e22b6a0.mokky.dev/cart";
@@ -18,12 +17,6 @@ const ORDERS = "https://72c8b75c9e22b6a0.mokky.dev/orders";
 
 const useAppState = () => {
   const { upButton } = useScroll();
-
-  const {
-    isOpen: isOpenNavbar,
-    open: openNavbar,
-    close: closeNavbar,
-  } = useModal(false, true);
 
   // const { data: pizzas, loading, error, refetch } = useFetch(API_URL);
   // const { loading, error, refetch } = useFetch(API_URL);
@@ -34,7 +27,7 @@ const useAppState = () => {
     categorizedItems,
     // loading: loadingCategories,
     // error: errorCategories,
-    // refetch: reloadCategori`es,
+    // refetch: reloadCategories,
   } = useCategories({ items: pizzas }); //items-origin
 
   const {
@@ -66,17 +59,43 @@ const useAppState = () => {
     items: categorizedItems, // items-from-useCategories
   });
 
+  // useOrders
+  // const {
+  //   orders: deliveries,
+  //   createOrder: creatDelivery,
+  //   removeOrder: removeDelivery,
+  // } = useOrders({
+  //   url: DELIVERY,
+  //   cartItems: cart,
+
+  //   clearCart,
+  //   totalPrice,
+  // });
+
+  // useOrders-new -> updated
   const {
     orders: deliveries,
     createOrder: creatDelivery,
     removeOrder: removeDelivery,
-  } = useOrders({
+    completeDelivery,
+  } = useOrdersControl({
     url: DELIVERY,
     cartItems: cart,
-
     clearCart,
     totalPrice,
   });
+
+  const { orders, createOrder, removeOrder, clearOrders, addOrderToState } =
+    useOrdersControl({
+      url: ORDERS,
+      cartItems: deliveries,
+      totalPrice,
+    });
+
+  // // Обработка завершения доставки
+  const onDeliveryComplete = (id) => {
+    return completeDelivery(id, ORDERS, addOrderToState);
+  };
 
   return {
     upButton,
@@ -103,14 +122,16 @@ const useAppState = () => {
     cartError,
     reLoadCart,
 
-    // checkout,
-
-    // orders,
-    // createOrder,
-    // removeOrder,
     deliveries,
     creatDelivery,
     removeDelivery,
+
+    orders,
+    createOrder,
+    removeOrder,
+    clearOrders,
+
+    onDeliveryComplete,
   };
 };
 

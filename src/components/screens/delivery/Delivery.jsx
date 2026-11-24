@@ -6,7 +6,7 @@ import InfoCard from "@/components/ui/cards/order-item/Info";
 
 import styles from "./Delivery.module.css";
 
-function Delivery({ deliveries = [] }) {
+function Delivery({ deliveries = [], onDeliveryComplete }) {
   const [parent] = useAutoAnimate({
     duration: 300,
     easing: "ease-in-out",
@@ -24,6 +24,7 @@ function Delivery({ deliveries = [] }) {
               items={delivery.items}
               totalPrice={delivery.totalPrice}
               orderArticle={delivery.dateOrder}
+              delivered={delivery.isDelivered}
             >
               <div className={styles.cardGrid}>
                 {delivery.items.map((item, index) => (
@@ -37,6 +38,15 @@ function Delivery({ deliveries = [] }) {
                   />
                 ))}
               </div>
+
+              {!delivery.isDelivered && (
+                <button
+                  className={styles.deliveryComplete}
+                  onClick={() => onDeliveryComplete(delivery.id)}
+                >
+                  Нажать когда заказ Доставлено
+                </button>
+              )}
             </InfoCard>
           ))
         ) : (

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useOrders = ({ url, cartItems, clearCart, totalPrice }) => {
+const useOrders = ({ url, cartItems = [], clearCart, totalPrice }) => {
   const [isOrderComplete, setIsOrderComplete] = useState(false);
   const [orders, setOrders] = useState([]);
   const [createdOrderId, setCreatedOrderId] = useState(null);
@@ -59,6 +59,7 @@ const useOrders = ({ url, cartItems, clearCart, totalPrice }) => {
     }
   };
 
+  // Удаление одного заказа
   const removeOrder = async (id) => {
     try {
       await axios.delete(`${url}/${id}`);
@@ -68,15 +69,16 @@ const useOrders = ({ url, cartItems, clearCart, totalPrice }) => {
     }
   };
 
-  // delete -> handleOrderClick
-  const handleOrderClick = () => {
-    // const cartItem = cartItems.find((item) => item.itemId === id);
-    const cartItem = cartItems.find((item) => item.id === id);
+  // Очистка списка заказов
+  const clearOrders = async () => {
+    try {
+      await Promise.all(
+        orders.map((item) => axios.delete(`${url}/${item.id}`)),
+      );
 
-    if (cartItem) {
-      removeItemFromCart(cartItem.id);
-    } else {
-      addItemToCart({ id, title, price, imageUrl });
+      setOrders([]);
+    } catch (err) {
+      console.error("Failed to clear orders:", err);
     }
   };
 
@@ -84,6 +86,7 @@ const useOrders = ({ url, cartItems, clearCart, totalPrice }) => {
     orders,
     createOrder,
     removeOrder,
+    clearOrders,
 
     isOrderComplete,
     setIsOrderComplete,

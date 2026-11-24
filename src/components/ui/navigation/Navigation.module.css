@@ -17,13 +17,13 @@
   border-radius: 18px;
   backdrop-filter: blur(20px);
   transition: background-color 0.3s ease;
-  gap: 10px;
+  gap: 5px;
 }
 
 .navigation {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .navigation a {
@@ -52,7 +52,7 @@
   font-size: 13px;
   font-weight: 700;
 
-  transition: background 0.2s;
+  transition: all 0.2s;
 }
 
 .cartButton:hover {
@@ -78,7 +78,10 @@
   
 } */
 
-@media (min-width: 400px) {
+@media (min-width: 380px) {
+  .menu {
+    gap: 20px;
+  }
   .navigation {
     gap: 20px;
   }

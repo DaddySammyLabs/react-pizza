@@ -141,6 +141,18 @@
   color: #ff6900;
 }
 
+.deleteButton {
+  background: #fff1dc;
+  color: #e58a00;
+  border: none;
+  padding: 5px;
+  transition: all 0.5s ease;
+}
+
+.deleteButton:hover {
+  background: #fcd8a1;
+}
+
 @media (max-width: 600px) {
   .delivery {
     padding: 30px 15px;

@@ -7,10 +7,15 @@ import Orders from "@/components/screens/orders/Orders";
 import styles from "./OrdersPage.module.css";
 
 const OrdersPage = () => {
-  // const { data: orders, loading, error, refetch } = useFetch(ORDERS_URL);
-  const { deliveries } = useApp();
+  const { orders, removeOrder, onDeliveryComplete } = useApp();
 
-  return <Orders />;
+  return (
+    <Orders
+      orders={orders}
+      removeOrder={removeOrder}
+      onDeliveryComplete={onDeliveryComplete}
+    />
+  );
 };
 
 export default OrdersPage;
